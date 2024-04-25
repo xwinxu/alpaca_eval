@@ -6,7 +6,7 @@
 [![discord](https://img.shields.io/badge/discord-server-blue?logo=discord&logoColor=white)](https://discord.gg/GJMxJSVZZM)
 
 
-**AlpacaEval 2.0 with length-controlled win-rates** has a spearman correlation of **0.98** with [ChatBot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) while costing less than **$10** of OpenAI credits run and running in less than 3 minutes. Our goal is to have a benchmark for chat LLMs that is: fast (< 5min), cheap (< $10), and highly correlated with humans (0.98). Here's a comparison with other benchmarks:
+**AlpacaEval 2.0 with length-controlled win-rates** ([paper](https://arxiv.org/abs/2404.04475)) has a spearman correlation of **0.98** with [ChatBot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) while costing less than **$10** of OpenAI credits run and running in less than 3 minutes. Our goal is to have a benchmark for chat LLMs that is: fast (< 5min), cheap (< $10), and highly correlated with humans (0.98). Here's a comparison with other benchmarks:
 
 <p float="left" align="middle">
 <img src="figures/chat_correlations_no_ae.png" alt="LC AlpacaEval is the most highly correlated benchmark with Chat Arena." width="500"/>
@@ -1217,13 +1217,11 @@ Here are the bibtex entries:
 ```
 
 ```
-@misc{alpaca_eval_length,
-  author = {Yann Dubois and Balazs Galambosi and Percy Liang and Tatsunori B. Hashimoto },
-  title = {Length-Corrected AlpacaEval: A Simple Debiasing of Automatic Evaluators},
-  year = {2024},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/tatsu-lab/alpaca_eval}}
+@article{dubois2024length,
+  title={Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators},
+  author={Dubois, Yann and Galambosi, Bal{\'a}zs and Liang, Percy and Hashimoto, Tatsunori B},
+  journal={arXiv preprint arXiv:2404.04475},
+  year={2024}
 }
 ```
 
@@ -1250,7 +1248,7 @@ Given such a logistic regression we can then try to predict the counterfactual "
 By averaging over this length-controlled preference, we then obtain the length-controlled win-rate.
 The exact form of the logistic regression is taken such that the interpretation of LC win rates is similar to the raw win rates, for example for any model `m1` and `m2` we have `win_rate(m1, m2) = 1 - win_rate(m2, m1) \in [0,100]` and `win_rate(m1, m1) = 0.5`. 
 Length controlled win-rates increase the correlation between AlpacaEval's leaderboard and Chat Arena from **0.93 to 0.98 Spearman correlation, while significantly decreasing the length gameability of the annotator**.
-For more information and results about length controlled win-rates see [this notebook](https://github.com/tatsu-lab/alpaca_eval/blob/main/notebooks/length_correction.ipynb).
+For more information and results about length controlled win-rates see [this notebook](https://github.com/tatsu-lab/alpaca_eval/blob/main/notebooks/length_controlled.ipynb).
 
 This idea of estimating the controlled direct effect, by predicting the outcome while conditioning on the mediator (the length difference), is common in statistical inference.
 

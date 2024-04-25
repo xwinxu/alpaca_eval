@@ -1,0 +1,19 @@
+Contextual-Zephyr-KTOZero-NegOnly-2xRef: # this should be the same as the name as the current directory
+  prompt_template: "Contextual-Zephyr-KTOZero-NegOnly-2xRef/prompt.txt"
+  fn_completions: "vllm_local_completions"
+  completions_kwargs:
+    # model_name: "/data/models/archangel/zephyr_sft_kto-zero_rejected_2xref/LATEST" 
+    # model_name: "/data/models/archangel/zephyr_sft_kto-zero_rejected_3xref/LATEST" 
+    model_name: "/home/winnie/halos/trl/train_kto_mixtral_icml/32gpusds_kto_icml_Mixtral-8x7B-Instruct-v0.1/"
+    model_kwargs:
+      torch_dtype: 'bfloat16'
+      tokenizer_mode: "auto"
+      trust_remote_code: True
+      tp: 2
+    max_new_tokens: 2048
+    temperature: 0.5
+    top_p: 0.95
+    batch_size: 900
+  # pretty_name: "Contextual AI (KTOZero-Zephyr NegOnly 2x Ref) temp07" # name in the leaderboard
+  # pretty_name: "Contextual AI (KTOZero-Zephyr NegOnly 3x Ref) temp07"
+  pretty_name: "Contextual AI (KTO Mixtral shp,oasst,hh) temp07"

@@ -1,0 +1,16 @@
+Contextual-Mistral-SFT-Beta: # this should be the same as the name as the current directory
+  prompt_template: "Contextual-Mistral-SFT-Beta/prompt.txt"
+  fn_completions: "vllm_local_completions"
+  completions_kwargs:
+    model_name: "HuggingFaceH4/mistral-7b-sft-beta"
+    model_kwargs:
+      torch_dtype: 'bfloat16'
+      tokenizer_mode: "auto"
+      trust_remote_code: True
+      tp: 2
+    max_new_tokens: 2048
+    # gpu_memory_utilization: 0.95
+    temperature: 0.5
+    top_p: 0.95
+    batch_size: 900
+  pretty_name: "Mistral SFT Beta Baseline temp07" # name in the leaderboard

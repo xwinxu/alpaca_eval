@@ -7,7 +7,7 @@ Contextual-KTO-Mistral-PairRM: # this should be the same as the name as the curr
     # model_name: /data/models/yi34_kto_pairrm/kto_mistral7b_instruct_v2_snorkel_pairrm_iter2_b0.1/LATEST
     model_name: /data/models/yi34_kto_pairrm/kto_mistral7b_instruct_v2_snorkel_pairrm_iter3_b0.1/LATEST
     model_kwargs:
-      torch_dtype: 'bfloat16'
+      dtype: 'bfloat16'
       tokenizer_mode: "auto"
       trust_remote_code: True
     max_new_tokens: 2048

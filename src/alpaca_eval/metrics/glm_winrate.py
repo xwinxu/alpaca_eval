@@ -81,6 +81,7 @@ def get_length_controlled_winrate(
 
     metrics = get_winrate(annotations)  # get the non-length controlled winrate
     df = utils.convert_to_dataframe(annotations)
+    print(f'---xwinxu(debug)---\ndataframe: {df.head()}')
 
     if save_weights_dir == "auto":
         assert len(df["annotator"].unique()) == 1
